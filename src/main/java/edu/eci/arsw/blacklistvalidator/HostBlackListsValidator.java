@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  *
  * @author hcadavid
  */
-public class HostBlackListsValidator {
+public class HostBlackListsValidator{
 
     private static final int BLACK_LIST_ALARM_COUNT=5;
     
@@ -29,13 +29,30 @@ public class HostBlackListsValidator {
      * @param ipaddress suspicious host's IP address.
      * @return  Blacklists numbers where the given host's IP address was found.
      */
-    public List<Integer> checkHost(String ipaddress){
+    public List<Integer> checkHost(String ipaddress, int numeroHilos){
         
         LinkedList<Integer> blackListOcurrences=new LinkedList<>();
-        
+        HostBlacklistsDataSourceFacade skds=HostBlacklistsDataSourceFacade.getInstance();
+        int numeroServidores = skds.getRegisteredServersCount();
+        int rangoFinal = numeroServidores / numeroHilos;
+        int rangoInicial = 0;
+
+        for (int i=0; i<= numeroHilos; i++) {
+        	Thread hilo = new HostBlackThread(ipaddress, rangoInicial, rangoFinal);
+        	hilo.start();
+        	
+        	if (i == numeroHilos) {
+        		rangoInicial = rangoFinal + 1;
+        		rangoFinal = 80000;
+        	}
+        	else {
+        		rangoInicial = rangoFinal + 1;
+        		rangoFinal = rangoFinal + rangoFinal;
+        	}
+        }
         int ocurrencesCount=0;
         
-        HostBlacklistsDataSourceFacade skds=HostBlacklistsDataSourceFacade.getInstance();
+        
         
         int checkedListsCount=0;
         
@@ -58,9 +75,13 @@ public class HostBlackListsValidator {
         }                
         
         LOG.log(Level.INFO, "Checked Black Lists:{0} of {1}", new Object[]{checkedListsCount, skds.getRegisteredServersCount()});
-        
+
         return blackListOcurrences;
     }
+    
+    
+    
+   
     
     
     private static final Logger LOG = Logger.getLogger(HostBlackListsValidator.class.getName());
