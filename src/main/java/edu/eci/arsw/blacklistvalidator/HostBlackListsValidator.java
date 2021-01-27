@@ -32,14 +32,16 @@ public class HostBlackListsValidator{
     public List<Integer> checkHost(String ipaddress, int numeroHilos){
         
         LinkedList<Integer> blackListOcurrences=new LinkedList<>();
+        LinkedList<HostBlackThread> listaHilos = new LinkedList<>();
         HostBlacklistsDataSourceFacade skds=HostBlacklistsDataSourceFacade.getInstance();
         int numeroServidores = skds.getRegisteredServersCount();
         int rangoFinal = numeroServidores / numeroHilos;
         int rangoInicial = 0;
 
         for (int i=0; i<= numeroHilos; i++) {
-        	Thread hilo = new HostBlackThread(ipaddress, rangoInicial, rangoFinal);
-        	hilo.start();
+        	
+        	HostBlackThread hilo = new HostBlackThread(ipaddress, rangoInicial, rangoFinal);
+        	listaHilos.add(hilo);
         	
         	if (i == numeroHilos) {
         		rangoInicial = rangoFinal + 1;
@@ -47,24 +49,34 @@ public class HostBlackListsValidator{
         	}
         	else {
         		rangoInicial = rangoFinal + 1;
-        		rangoFinal = rangoFinal + rangoFinal;
+        		rangoFinal = rangoFinal + numeroServidores/numeroHilos;
         	}
         }
+        
+        for (HostBlackThread hilo: listaHilos) {
+        	hilo.start();
+
+        }
+        
+        for (HostBlackThread hilo: listaHilos) {
+        	try {
+				hilo.join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        }
+        
         int ocurrencesCount=0;
-        
-        
-        
         int checkedListsCount=0;
         
-        for (int i=0;i<skds.getRegisteredServersCount() && ocurrencesCount<BLACK_LIST_ALARM_COUNT;i++){
-            checkedListsCount++;
-            
-            if (skds.isInBlackListServer(i, ipaddress)){
-                
-                blackListOcurrences.add(i);
-                
-                ocurrencesCount++;
-            }
+        
+        for (HostBlackThread hilo: listaHilos) {
+        	ocurrencesCount += hilo.getOcurrences();
+        	checkedListsCount += hilo.getCheckedListCount();
+        	for (Integer i : hilo.getBlackListOcurrences()) {
+        		blackListOcurrences.add(i);
+        	}
         }
         
         if (ocurrencesCount>=BLACK_LIST_ALARM_COUNT){
