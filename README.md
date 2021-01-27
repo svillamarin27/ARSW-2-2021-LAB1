@@ -24,6 +24,7 @@
 	1. Cree 3 hilos de tipo CountThread, asignándole al primero el intervalo [0..99], al segundo [99..199], y al tercero [200..299].
 	![image](https://user-images.githubusercontent.com/50029247/106065724-b073bc80-60c9-11eb-8782-e698a7f28b50.png)
 	2. Inicie los tres hilos con 'start()'.
+	![image](https://user-images.githubusercontent.com/50029247/106065858-e618a580-60c9-11eb-9841-c1a99a35f5c9.png)
 	3. Ejecute y revise la salida por pantalla. 
 	4. Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
 
