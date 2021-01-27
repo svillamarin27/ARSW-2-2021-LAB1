@@ -16,6 +16,8 @@
 **Parte I - Introducción a Hilos en Java**
 
 1. De acuerdo con lo revisado en las lecturas, complete las clases CountThread, para que las mismas definan el ciclo de vida de un hilo que imprima por pantalla los números entre A y B.
+
+![image](https://user-images.githubusercontent.com/50029247/106065290-1875d300-60c9-11eb-9e4a-90cf77283551.png)
 ![image](https://user-images.githubusercontent.com/50029247/106065155-dc427280-60c8-11eb-9c88-7d737098c60b.png)
 
 2. Complete el método __main__ de la clase CountMainThreads para que:
