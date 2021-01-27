@@ -33,10 +33,7 @@
 	
 	4. Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
 	
-		![image](https://user-images.githubusercontent.com/50029247/106066108-43acf200-60ca-11eb-8a65-ed0e8c18486e.png) 
-
-
-
+		
 **Parte II - Ejercicio Black List Search**
 
 
