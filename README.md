@@ -32,6 +32,8 @@
 	3. Ejecute y revise la salida por pantalla. 
 	
 	4. Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
+		
+		![image](https://user-images.githubusercontent.com/50029247/106067185-237e3280-60cc-11eb-9a02-8d89dcefc402.png)
 	
 		
 **Parte II - Ejercicio Black List Search**
