@@ -135,6 +135,7 @@ La ley de Amdahl es la ganancia del rendimiento que se logra al realizar una mej
 2. Cómo se comporta la solución usando tantos hilos de procesamiento como núcleos comparado con el resultado de usar el doble de éste?.
 
 Al usar 2 Threads se obtuvo un tiempo de minuto y 9 segundos y usando 4 Threads obtenemos un tiempo de 56 segundos.Existe un punto en el que no importa el numero de Threads que aumentemos , no se obtendra un aumento significativo en el rendimiento. Así lo vemos reflejado en este caso en el que a pesar de usar el doble de threads de procesamiento no obtuvimos un aumento de mas de 15 segundos en el rendimiento.
+
 3. De acuerdo con lo anterior, si para este problema en lugar de 100 hilos en una sola CPU se pudiera usar 1 hilo en cada una de 100 máquinas hipotéticas, la ley de Amdahls se aplicaría mejor?. Si en lugar de esto se usaran c hilos en 100/c máquinas distribuidas (siendo c es el número de núcleos de dichas máquinas), se mejoraría?. Explique su respuesta.
 
 Inicialmente,se obtendra un aumento del rendimiento ya que no está realizando ninguna mejora en ninguna de las computadoras. En segundo lugar, se estaria provocando una disminución en el rendimiento al tener que asegurar la coordinación entre todas las maquinas a la hora de acoplar resultados.
