@@ -31,6 +31,8 @@
 	
 	3. Ejecute y revise la salida por pantalla. 
 	
+		![image](https://user-images.githubusercontent.com/50029247/106071546-8a9fe500-60d4-11eb-97ac-c5386f53fa73.png)
+	
 	4. Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
 	
 		![image](https://user-images.githubusercontent.com/50029247/106067520-d8185400-60cc-11eb-9ab7-c46612e8f78c.png)
