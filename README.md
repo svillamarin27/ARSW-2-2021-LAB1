@@ -101,7 +101,27 @@ A partir de lo anterior, implemente la siguiente secuencia de experimentos para 
 5. 100 hilos.
 
 Al iniciar el programa ejecute el monitor jVisualVM, y a medida que corran las pruebas, revise y anote el consumo de CPU y de memoria en cada caso. ![](img/jvisualvm.png)
+1 Hilo.
 
+![1 hilo](https://user-images.githubusercontent.com/50029247/106073617-6c3be880-60d8-11eb-9141-73a24f174156.jpeg)
+	
+2 Hilos.
+
+![2 hilos](https://user-images.githubusercontent.com/50029247/106074040-2a5f7200-60d9-11eb-8dae-7f3fdceba1c4.jpeg)
+
+4 Hilos.
+
+![4 hilos](https://user-images.githubusercontent.com/50029247/106074123-4f53e500-60d9-11eb-9ded-95c5e7d3410c.jpeg)
+
+50 Hilos.
+
+![50 hilos](https://user-images.githubusercontent.com/50029247/106074064-3ba87e80-60d9-11eb-9e57-b33bc7110a04.jpeg)
+
+100 Hilos.
+
+![100 hilos](https://user-images.githubusercontent.com/50029247/106074168-60045b00-60d9-11eb-98b1-dceff278620d.jpeg)
+		
+		
 Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tiempo de solución vs. número de hilos. Analice y plantee hipótesis con su compañero para las siguientes preguntas (puede tener en cuenta lo reportado por jVisualVM):
 
 
