@@ -129,6 +129,7 @@ Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tie
 1. Según la [ley de Amdahls](https://www.pugetsystems.com/labs/articles/Estimating-CPU-Performance-using-Amdahls-Law-619/#WhatisAmdahlsLaw?):
 
 	![](img/ahmdahls.png), donde _S(n)_ es el mejoramiento teórico del desempeño, _P_ la fracción paralelizable del algoritmo, y _n_ el número de hilos, a mayor _n_, mayor debería ser dicha mejora. Por qué el mejor desempeño no se logra con los 500 hilos?, cómo se compara este desempeño cuando se usan 200?. 
+La ley de Amdahl es la ganancia del rendimiento que se logra al realizar una mejora en nuestro procesador. Adeemás de esto, la segunda variante de esta ley menciona que el incremento del rendimiento será menor si se introduce una mejora sobre un sistema previamente mejorado. En el caso de BlackListSearch la se ve reflejada por el numero de Threads usados durante la ejecución. Cuando se realizó la ejecución del programa con 1 hilo obtuvimos un rendimiento de 4 minutos con 24 segundos. Posteriormente , realizando la ejecución del programa con 4 Threads obtuvimos una mejora significativa al presentarse 56 segundos en el tiempo de ejecución. Es así , a medida que se aumenta el numero de Threads , habrá un incremento del rendimiento menor en el programa. De esta manera , se estara acercándo a un tiempo de ejecución constante.
 
 2. Cómo se comporta la solución usando tantos hilos de procesamiento como núcleos comparado con el resultado de usar el doble de éste?.
 
